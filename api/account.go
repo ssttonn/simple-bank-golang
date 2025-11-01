@@ -116,9 +116,5 @@ func (server *Server) listAccounts(ctx *gin.Context) {
 		return
 	}
 
-	if accounts == nil {
-		accounts = []db.Account{}
-	}
-
 	ctx.JSON(http.StatusOK, gin.H{"accounts": accounts, "page": req.Page, "pageSize": req.PageSize, "total": total})
 }
