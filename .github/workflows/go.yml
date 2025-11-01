@@ -36,6 +36,9 @@ jobs:
     - name: Checkout Source Code into the Go module directory
       uses: actions/checkout@v4
       id: checkout-source
+    
+    - name: Install golang-migrate
+      run: go install github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 
     - name: Run migrations
       run: make migrateup
