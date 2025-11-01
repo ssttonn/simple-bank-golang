@@ -48,8 +48,5 @@ jobs:
     - name: Run migrations
       run: make migrateup
 
-    - name: Generate SQL code
-      run: make sqlc
-
     - name: Test the Go application
       run: make test
