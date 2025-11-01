@@ -38,7 +38,10 @@ jobs:
       id: checkout-source
     
     - name: Install golang-migrate
-      run: go install github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+      run: |
+        curl -L https://github.com/golang-migrate/migrate/releases/download/v4.17.0/migrate.linux-amd64.tar.gz | tar xvz
+        sudo mv migrate/migrate /usr/bin/
+        which migrate
 
     - name: Run migrations
       run: make migrateup
