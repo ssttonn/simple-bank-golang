@@ -32,7 +32,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: '1.20'
+        go-version: '1.23'
       id: setup-go
 
     - name: Checkout Source Code into the Go module directory
@@ -47,6 +47,9 @@ jobs:
 
     - name: Run migrations
       run: make migrateup
+
+    - name: Generate SQL code
+      run: make sqlc
 
     - name: Test the Go application
       run: make test
